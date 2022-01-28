@@ -185,7 +185,7 @@ public class BlogClient {
         return blogPosts;
     }
 
-    public boolean updatePostById(int id, BlogPost updatePost){
+    public boolean updatePostById(int id, BlogPost updatePost) {
         String target = "/update/" + id;
 
         boolean success = false;
@@ -233,7 +233,7 @@ public class BlogClient {
             if (status < 300) {
                 success = true;
                 System.out.println("HTTP-status: " + status);
-            }else {
+            } else {
                 System.out.println("HTTP-status: " + status);
             }
         } catch (Exception e) {

@@ -32,18 +32,24 @@ public class BlogProgram {
             System.out.println("User picked: " + userChoice);
 
             switch (userChoice) {
-                case 1: addPost();
-                break;
-                case 2: printListOfPosts();
-                break;
-                case 3: getPostByID();
-                break;
-                case 4: updatePostByID();
-                break;
-                case 5: deletePostByID();
-                break;
-                case 6: clearListOfPosts();
-                break;
+                case 1:
+                    addPost();
+                    break;
+                case 2:
+                    printListOfPosts();
+                    break;
+                case 3:
+                    getPostByID();
+                    break;
+                case 4:
+                    updatePostByID();
+                    break;
+                case 5:
+                    deletePostByID();
+                    break;
+                case 6:
+                    clearListOfPosts();
+                    break;
                 case 7:
                     System.out.println("Goodbye.");
                     programRunning = false;
@@ -84,7 +90,7 @@ public class BlogProgram {
                 String body = posts[i].body;
                 int id = posts[i].id;
 
-                System.out.printf("-> ID: %d Title: %s ( %s )\n",id, title, body);
+                System.out.printf("-> ID: %d Title: %s ( %s )\n", id, title, body);
             }
         } else {
             System.out.println("No posts in the list. :(");
@@ -92,24 +98,22 @@ public class BlogProgram {
     }
 
     // Metod för att lista blogginlägg med specifikt ID
-    public void getPostByID(){
+    public void getPostByID() {
         System.out.println("What ID are your looking for?");
         int postId = getUserInt();
         BlogPost post = myApiClient.getPostByID(postId);
 
-
-
-        if(post != null) {
+        if (post != null) {
             String title = post.title;
             String body = post.body;
             int id = post.id;
             System.out.printf("-> ID: %d Title: %s ( %s )\n", id, title, body);
-        }else {
+        } else {
             System.out.println("ID:" + postId + " Not found :( ");
         }
     }
 
-    public void updatePostByID(){
+    public void updatePostByID() {
         System.out.println("Which post would you like to update?");
         System.out.print("ID: ");
         int postId = getUserInt();
@@ -132,15 +136,14 @@ public class BlogProgram {
 
     }
 
-    public void deletePostByID(){
+    public void deletePostByID() {
         System.out.println("Which post would you like to delete?");
         System.out.print("ID: ");
         int postId = getUserInt();
-        
-        if(myApiClient.deletePostByID(postId)) {
+
+        if (myApiClient.deletePostByID(postId)) {
             System.out.println("ID:" + postId + " Deleted.");
-        }
-        else {
+        } else {
             System.out.println("Issue deleting ID:" + postId);
         }
 
@@ -156,13 +159,6 @@ public class BlogProgram {
             System.out.println("Issue clearing list of posts. :(");
         }
     }
-
-
-
-
-
-
-
 
 
     public String getUserString() {
